@@ -1,0 +1,171 @@
+/* src/styles/FlightLoader.css */
+
+.loader-container {
+    position: relative;
+    overflow: hidden;
+    width: 200px; /* You can adjust the size */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+    z-index: 10;
+  }
+  
+  .loader span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  .loader span span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#f07e6e, #8439ff);
+    filter: blur(20px);
+  }
+  .loader span span:nth-child(1) { background: linear-gradient(#8439ff, #f07e6e); }
+  .loader span span:nth-child(2) { background: linear-gradient(#ff0, #f0f); }
+  .loader span span:nth-child(3) { background: linear-gradient(#0f0, #0ff); }
+  
+  .loader .base {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .loader .base span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #333);
+  }
+  
+  .loader .base .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #333;
+    border: 4px solid #333;
+    box-sizing: border-box;
+  }
+  
+  .loader .base .face::before,
+  .loader .base .face::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 10px;
+    background: #fff;
+    border-radius: 40%;
+    animation: eye-blink 2s linear infinite;
+  }
+  .loader .base .face::before { left: 20px; }
+  .loader .base .face::after { right: 20px; }
+  
+  @keyframes eye-blink {
+    0%, 10%, 100% { height: 10px; }
+    5% { height: 2px; }
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* --- Longfazers (Speed Lines) --- */
+  .longfazers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+  
+  .longfazers span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fazers-anim 1s linear infinite;
+  }
+  .longfazers span:nth-child(1) { top: 50%; left: 0; animation-delay: 0s; }
+  .longfazers span:nth-child(2) { top: 50%; left: 0; animation-delay: -0.2s; }
+  .longfazers span:nth-child(3) { top: 50%; left: 0; animation-delay: -0.4s; }
+  .longfazers span:nth-child(4) { top: 50%; left: 0; animation-delay: -0.6s; }
+  
+  @keyframes fazers-anim {
+    0% { transform: translateX(0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateX(200px); opacity: 0; }
+  }
+  
+  /* --- Clouds --- */
+  .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .cloud {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: #fff;
+    border-radius: 40px;
+    animation: cloud-anim 4s linear infinite;
+  }
+  .cloud::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    top: -20px;
+    left: 10px;
+  }
+  .cloud::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    top: -25px;
+    right: 10px;
+  }
+  
+  .cloud1 { top: 20%; left: 100%; animation-delay: -1s; }
+  .cloud2 { top: 40%; left: 100%; animation-delay: -2s; }
+  .cloud3 { top: 60%; left: 100%; animation-delay: -0.5s; }
+  .cloud4 { top: 70%; left: 100%; animation-delay: -1.5s; }
+  .cloud5 { top: 80%; left: 100%; animation-delay: -2.5s; }
+  
+  @keyframes cloud-anim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-300px); }
+  }
