@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { fetchFlights } from "../../store/slices/flightSlice";
 import { Search, ArrowRightLeft } from "lucide-react";
 import { airports } from "../../data/airports";
@@ -258,13 +259,15 @@ const FlightSearchForm = () => {
         />
       </div>
 
-      <button
+      <motion.button
         type="submit"
-        className="w-full bg-red-700 text-white font-bold py-3 px-6 rounded-none transition duration-200 hover:bg-white hover:text-red-900 flex items-center justify-center md:col-span-6 text-sm sm:text-base"
+        className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-red-900/40 flex items-center justify-center md:col-span-6 text-sm sm:text-base transition-all duration-300"
+        whileHover={{ scale: 1.03, y: -2 }}
+        whileTap={{ scale: 0.97 }}
       >
         <Search className="mr-2 h-5 w-5" />
         Search Flights
-      </button>
+      </motion.button>
 
       {error && (
         <div className="md:col-span-6 text-red-600 text-sm mt-2">{error}</div>
