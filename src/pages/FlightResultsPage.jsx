@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 // 1. Import useNavigate
 import { useNavigate } from 'react-router-dom'
@@ -8,7 +8,10 @@ import {
   selectSearchParams,
   selectFlightsError
 } from '../store/slices/flightSlice'
+import { selectFilteredAndSortedFlights } from '../store/slices/filterSlice'
 import FlightCard from '../components/flight/FlightCard'
+import FilterPanel from '../components/flight/FilterPanel'
+import { Filter } from 'lucide-react'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import FlightLoader from '../components/common/FlightLoader'
@@ -24,10 +27,13 @@ const itemVariants = {
 };
 
 const FlightResultsPage = () => {
-  const flights = useSelector(selectAllFlights);
+  const allFlights = useSelector(selectAllFlights);
+  const flights = useSelector(selectFilteredAndSortedFlights);
   const status = useSelector(selectFlightsStatus);
   const params = useSelector(selectSearchParams);
   const error = useSelector(selectFlightsError);
+  
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   
   // 2. Initialize the navigate function
   const navigate = useNavigate();
@@ -87,33 +93,71 @@ const FlightResultsPage = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <div className="max-w-4xl mx-auto">
-        <motion.h1 
-          className="text-3xl font-bold mb-2 text-black/90"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          Flights from {params.from?.toUpperCase()} to {params.to?.toUpperCase()}
-        </motion.h1>
-        <motion.p 
-          className="text-lg text-black/60 mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
-          Showing results for {params.date}
-        </motion.p>
-        
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={status}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-6">
+          <motion.h1 
+            className="text-3xl font-bold mb-2 text-black/90"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
           >
-            {content}
+            Flights from {params.from?.toUpperCase()} to {params.to?.toUpperCase()}
+          </motion.h1>
+          <motion.div 
+            className="flex items-center justify-between"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            <p className="text-lg text-black/60">
+              Showing {flights.length} of {allFlights.length} flights for {params.date}
+            </p>
+            
+            {/* Mobile Filter Toggle */}
+            <button
+              onClick={() => setIsFilterOpen(true)}
+              className="lg:hidden flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+            >
+              <Filter className="w-5 h-5" />
+              Filters
+            </button>
           </motion.div>
-        </AnimatePresence>
+        </div>
+
+        {/* Main Content with Sidebar */}
+        <div className="flex gap-6">
+          {/* Desktop Filter Panel (Sticky Sidebar) */}
+          <div className="hidden lg:block w-80 flex-shrink-0">
+            <div className="sticky top-4">
+              <FilterPanel 
+                isOpen={true}
+                onClose={() => {}}
+                isMobile={false}
+              />
+            </div>
+          </div>
+
+          {/* Mobile Filter Panel (Overlay) */}
+          <FilterPanel 
+            isOpen={isFilterOpen}
+            onClose={() => setIsFilterOpen(false)}
+            isMobile={true}
+          />
+
+          {/* Flight Results */}
+          <div className="flex-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={status}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {content}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </div>
   )
