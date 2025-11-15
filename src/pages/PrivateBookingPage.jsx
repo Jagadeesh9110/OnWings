@@ -98,6 +98,7 @@ const PrivateBookingPage = () => {
   const [returnDate, setReturnDate] = useState(null);
   const [passengers, setPassengers] = useState('1');
   const [aircraftType, setAircraftType] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -111,6 +112,8 @@ const PrivateBookingPage = () => {
       passengers,
       aircraftType,
     });
+    // Show confirmation message
+    setIsSubmitted(true);
   };
 
   return (
@@ -296,6 +299,32 @@ const PrivateBookingPage = () => {
                   Get Personalized Quote
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
+
+                {/* Confirmation Message */}
+                {isSubmitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-6"
+                  >
+                    <Card className="bg-green-600/20 border-green-500/50">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <CheckCircle className="w-16 h-16 text-green-500" />
+                          <div>
+                            <h3 className="text-xl font-bold text-white mb-2">
+                              Details Received Successfully!
+                            </h3>
+                            <p className="text-gray-300">
+                              We have received your details. Our employee will talk with you regarding the booking.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                )}
               </form>
             </CardContent>
           </Card>
