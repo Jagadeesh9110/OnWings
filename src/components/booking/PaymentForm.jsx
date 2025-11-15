@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, CreditCard, Lock } from "lucide-react";
+import { Loader2, Lock } from "lucide-react";
 
 const PaymentForm = ({ onSubmit }) => {
   const [loading, setLoading] = useState(false);
@@ -51,16 +51,15 @@ const PaymentForm = ({ onSubmit }) => {
         >
           Card Number
         </label>
-        <div className="relative">
+        <div>
           <input
             id="card"
             type="text"
             value={card}
             onChange={(e) => setCard(e.target.value)}
             placeholder="4242 4242 4242 4242"
-            className="mt-1 block w-full p-2 sm:p-3 bg-transparent border-0 border-b-2 border-gray-500 focus:border-red-500 focus:ring-0 rounded-none text-white pl-10 text-sm sm:text-base placeholder:text-gray-500"
+            className="mt-1 block w-full p-2 sm:p-3 bg-transparent border-0 border-b-2 border-gray-500 focus:border-red-500 focus:ring-0 rounded-none text-white text-sm sm:text-base placeholder:text-gray-500"
           />
-          <CreditCard className="absolute top-1/2 left-2 -translate-y-1/2 h-5 w-5 text-gray-400" />
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
