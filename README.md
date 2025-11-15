@@ -1,89 +1,191 @@
-# ✈️ OnWings
+# ✈️ OnWings - Modern Flight Booking System
 
-A modern, full-featured flight booking web application built with React, Redux Toolkit, and Vite. OnWings provides an intuitive interface for searching flights, booking tickets, and managing reservations with stunning visual effects with 2D seat booking and smooth animations.
+<div align="center">
 
-## 🌟 Features
+![React](https://img.shields.io/badge/react-19.1.1-blue.svg)
+![Vite](https://img.shields.io/badge/vite-7.1.7-646CFF.svg)
+![Redux Toolkit](https://img.shields.io/badge/redux_toolkit-2.9.2-764ABC.svg)
+![Tailwind CSS](https://img.shields.io/badge/tailwind_css-3.4.18-38B2AC.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-### Flight Search & Booking
-- **Advanced Flight Search** - Search flights by origin, destination, dates, and passenger count
-- **Real-time Results** - Instant flight results with detailed information
-- **Multi-step Booking Process** - Seamless booking flow with passenger details, seat selection, and payment
-- **Seat Selection** - Interactive seat map for choosing preferred seat
-- **Luggage Management** - Add and customize luggage options
-- **Price Calculator** - Dynamic pricing with real-time updates and information
+A seamless and intuitive flight booking platform built with modern web technologies, featuring real-time seat selection, dynamic pricing, and a beautiful user interface.
 
-### User Experience
-- **Authentication System** - Secure login and signup modals
-- **Responsive Design** - Fully responsive across all device sizes
-- **Beautiful UI** - Modern interface with Tailwind CSS
-- **Smooth Animations** - Framer Motion powered transitions
-- **Visual Effects** - Shader backgrounds and floating path animations
-- **Loading States** - Custom flight loader animations
+[Live Demo](#) • [Report Bug](https://github.com/ashishbongu/OnWings/issues) • [Request Feature](https://github.com/ashishbongu/OnWings/issues)
 
-### Technical Features
-- **State Management** - Redux Toolkit for centralized state management
-- **Routing** - React Router DOM for navigation
-- **Mock API** - Built-in mock API for development and testing
-- **Date Handling** - Internationalized date picker with @ark-ui
-- **Icon Library** - Lucide React icons throughout the app
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [About The Project](#about-the-project)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Usage Guide](#usage-guide)
+- [Development](#development)
+- [Contributing](#contributing)
+- [Team](#team)
+- [License](#license)
+
+---
+
+## 🎯 About The Project
+
+OnWings is a comprehensive flight booking system designed to address the common pain points in traditional booking platforms. We've created an intuitive, modern interface that streamlines the entire booking process from search to confirmation.
+
+### The Problem We Solve
+
+- ❌ Fragmented and confusing user experiences
+- ❌ Poor real-time seat selection interfaces
+- ❌ Lack of transparent pricing information
+- ❌ Complicated multi-step booking processes
+
+### Our Solution
+
+✅ Seamless, guided booking workflow  
+✅ Interactive real-time seat selection  
+✅ Transparent dynamic pricing  
+✅ Modern, responsive design  
+✅ Comprehensive booking management  
+
+---
+
+## ✨ Key Features
+
+### 🔍 Smart Flight Search
+- Dynamic date selection with custom date picker
+- Route selection with airport autocomplete
+- Flexible search parameters
+
+### 🪑 Real-time Seat Selection
+- Interactive seat map with live availability
+- Visual seat status indicators (available, selected, occupied)
+- Multi-passenger seat allocation
+- Premium seat options
+
+### 👥 Multi-passenger Booking
+- Comprehensive passenger information forms
+- Support for multiple travelers
+- Passenger type selection (Adult, Child, Infant)
+- Contact information management
+
+### 💰 Dynamic Pricing System
+- Real-time price calculation
+- Luggage options with dynamic pricing
+- Tax and fee breakdown
+- Clear price summary
+
+### 🎫 Digital Ticket Generation
+- Instant booking confirmation
+- Downloadable digital tickets
+- Booking reference numbers
+- Email confirmation (simulated)
+
+### 🔐 User Authentication
+- Secure login and signup modals
+- Form validation
+- Session management
+- Protected booking routes
+
+### 🎨 Beautiful UI/UX
+- Custom shader backgrounds
+- Smooth animations with Framer Motion
+- Responsive design for all devices
+- Intuitive navigation
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 19.1.1** - UI library
+- **Vite 7.1.7** - Build tool and dev server
+- **React Router 7.9.4** - Client-side routing
+- **Framer Motion 12.23.24** - Animations
+
+### State Management
+- **Redux Toolkit 2.9.2** - Global state management
+- **React Redux 9.2.0** - React bindings for Redux
+
+### Styling
+- **Tailwind CSS 3.4.18** - Utility-first CSS framework
+- **PostCSS 8.5.6** - CSS transformations
+- **@paper-design/shaders-react** - Custom shader effects
+
+### UI Components
+- **@ark-ui/react 5.27.1** - Accessible UI primitives
+- **Lucide React 0.548.0** - Icon library
+- **@internationalized/date 3.5.5** - Date handling
+
+### API & Data
+- **Axios 1.7.2** - HTTP client
+- Mock API with realistic delays
+
+### Development Tools
+- **ESLint 9.36.0** - Code linting
+- **Autoprefixer 10.4.21** - CSS vendor prefixes
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
+- Node.js (v18 or higher recommended)
 - npm or yarn package manager
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/ashishbongu/OnWings
-cd OnWings
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ashishbongu/OnWings.git
+   cd OnWings
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-4. Open your browser and navigate to:
-```
-http://localhost:5000
-```
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
 
-## 📜 Available Scripts
+### Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint for code quality
+- `npm run lint` - Run ESLint
 
-## 🏗️ Project Structure
+---
+
+## 📁 Project Structure
 
 ```
 OnWings/
-├── public/              # Static assets
+├── public/                 # Static assets
 ├── src/
-│   ├── api/            # API and mock data services
-│   │   └── mockApi.js
-│   ├── assets/         # Images, fonts, and other assets
-│   ├── components/     # Reusable React components
-│   │   ├── auth/       # Authentication components
+│   ├── api/               # API simulation and services
+│   │   └── mockApi.js     # Mock API endpoints
+│   ├── assets/            # Images, fonts, etc.
+│   ├── components/
+│   │   ├── auth/          # Authentication components
 │   │   │   ├── LoginModal.jsx
 │   │   │   └── SignupModal.jsx
-│   │   ├── booking/    # Booking flow components
+│   │   ├── booking/       # Booking flow components
 │   │   │   ├── LuggageInfo.jsx
 │   │   │   ├── PassengerForm.jsx
 │   │   │   ├── PaymentForm.jsx
 │   │   │   ├── PriceSummary.jsx
 │   │   │   └── SeatMap.jsx
-│   │   ├── common/     # Shared components
+│   │   ├── common/        # Shared components
 │   │   │   ├── ArkDatePicker.jsx
 │   │   │   ├── ExpandingGallery.jsx
 │   │   │   ├── FlightLoader.jsx
@@ -92,109 +194,176 @@ OnWings/
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── ShaderBackground.jsx
 │   │   │   └── WarpBackground.jsx
-│   │   ├── flight/     # Flight search components
+│   │   ├── flight/        # Flight-related components
 │   │   │   ├── FlightCard.jsx
 │   │   │   └── FlightSearchForm.jsx
-│   │   └── icons/      # Custom icon components
-│   │       └── Icons.jsx
-│   ├── data/           # Static data and mock datasets
-│   │   ├── airports.js
-│   │   └── mockFlights.js
-│   ├── pages/          # Page components
+│   │   └── icons/         # Icon components
+│   ├── data/              # Static data
+│   │   ├── airports.js    # Airport information
+│   │   └── mockFlights.js # Sample flight data
+│   ├── pages/             # Page components
 │   │   ├── HomePage.jsx
 │   │   ├── FlightResultsPage.jsx
 │   │   ├── BookingPage.jsx
-│   │   ├── PaymentPage.jsx
 │   │   └── ConfirmationPage.jsx
-│   ├── store/          # Redux store and slices
-│   │   ├── store.js
-│   │   └── slices/
+│   ├── store/             # Redux store
+│   │   ├── store.js       # Store configuration
+│   │   └── slices/        # Redux slices
 │   │       ├── bookingSlice.js
 │   │       └── flightSlice.js
-│   ├── styles/         # CSS and styling files
-│   │   ├── FlightLoader.css
-│   │   └── index.css
-│   ├── App.jsx         # Main App component
-│   └── main.jsx        # Application entry point
-├── index.html          # HTML template
-├── package.json        # Dependencies and scripts
-├── vite.config.js      # Vite configuration
-├── tailwind.config.js  # Tailwind CSS configuration
-├── postcss.config.js   # PostCSS configuration
-└── eslint.config.js    # ESLint configuration
+│   ├── styles/            # Global styles
+│   ├── App.jsx            # Root component
+│   └── main.jsx           # Entry point
+├── index.html
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+└── eslint.config.js
 ```
 
-## 🛠️ Tech Stack
+---
 
-### Core
-- **React 19** - UI library
-- **Vite 7** - Build tool and dev server
-- **Redux Toolkit** - State management
-- **React Router DOM** - Client-side routing
+## 📖 Usage Guide
 
-### Styling
-- **Tailwind CSS** - Utility-first CSS framework
-- **PostCSS** - CSS transformation
-- **Framer Motion** - Animation library
+### 1. Search for Flights
 
-### UI Components
-- **@ark-ui/react** - Accessible UI components
-- **Lucide React** - Icon library
-- **@paper-design/shaders-react** - Shader effects
+1. Navigate to the homepage
+2. Select departure and arrival airports
+3. Choose travel dates using the date picker
+4. Select number of passengers
+5. Click "Search Flights"
 
-### Development
-- **ESLint** - Code linting
-- **Autoprefixer** - CSS vendor prefixing
+### 2. Browse Flight Results
 
-## 📱 Application Flow
+- View available flights with details (time, duration, price)
+- Filter and sort results
+- Select your preferred flight
 
-1. **Home Page** - Search for flights with origin, destination, and dates
-2. **Flight Results** - Browse available flights with details
-3. **Booking Page** - Enter passenger details and select seats
-4. **Payment Page** - Complete payment with secure form
-5. **Confirmation** - View booking confirmation and ticket details
+### 3. Complete Booking
 
-## 🎨 Key Features Details
+**Step 1: Passenger Information**
+- Enter details for all passengers
+- Provide contact information
+
+**Step 2: Seat Selection**
+- View interactive seat map
+- Select seats for each passenger
+- See real-time availability
+
+**Step 3: Luggage & Extras**
+- Choose baggage options
+- Add travel insurance (if available)
+- Review price breakdown
+
+**Step 4: Payment**
+- Enter payment details
+- Review final price
+- Confirm booking
+
+### 4. Get Confirmation
+
+- View booking confirmation
+- Download digital ticket
+- Receive booking reference
+
+---
+
+## 👨‍💻 Development
+
+### Component Development
+
+Components follow a modular structure with clear separation of concerns:
+
+- **Presentational Components**: Pure UI components
+- **Container Components**: Connected to Redux store
+- **Page Components**: Top-level route components
 
 ### State Management
-The application uses Redux Toolkit with organized slices:
-- **Flight Slice** - Manages flight search and results
-- **Booking Slice** - Handles booking process and passenger data
 
-### Routing
-The app uses React Router with the following routes:
-- `/` - Home page with flight search
-- `/flights` - Flight results page
-- `/book/:flightId` - Booking page for specific flight
-- `/payment` - Payment processing page
-- `/confirmation/:bookingId` - Booking confirmation page
+The application uses Redux Toolkit with the following slices:
 
-### Mock API
-Built-in mock API simulates real backend responses for:
-- Flight search
-- Booking creation
-- Payment processing
-- Airport data retrieval
+**Flight Slice**
+- Flight search parameters
+- Search results
+- Selected flight
 
-## 🔧 Configuration
+**Booking Slice**
+- Passenger information
+- Seat selections
+- Luggage options
+- Payment details
+- Booking confirmation
 
-### Vite Configuration
-- Development server runs on port 5000
-- HMR (Hot Module Replacement) enabled with WebSocket support
-- Preview server configured for production testing
+### Styling Guidelines
 
-### Tailwind CSS
-Configured with custom theme settings and plugins for enhanced styling capabilities.
+- Use Tailwind CSS utility classes
+- Follow mobile-first responsive design
+- Maintain consistent spacing and colors
+- Use custom shader effects sparingly
 
-## 🚦 Development Workflow
+### Adding New Features
 
-1. Make changes to components in the `src/` directory
-2. Vite will automatically hot-reload your changes
-3. Run `npm run lint` to check code quality
-4. Build for production with `npm run build`
-5. Test production build with `npm run preview`
+1. Create feature branch from `main`
+2. Develop and test locally
+3. Ensure code passes linting
+4. Submit pull request for review
 
+---
 
+## 🤝 Contributing
 
+Contributions are what make the open-source community amazing! Any contributions you make are **greatly appreciated**.
 
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
+---
+
+## 👥 Team
+
+This project was developed by a collaborative team of developers:
+
+- **Ganesh** - Team Coordinator & Frontend Development
+- **Jagadesh** - State Management & API Integration
+- **Hariteja** - UI/UX Design & Component Architecture
+- **Ashish** - Booking System & Payment Flow
+- **Harsha** - Seat Selection & Real-time Features
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 🔗 Links
+
+- **Repository**: [https://github.com/ashishbongu/OnWings](https://github.com/ashishbongu/OnWings)
+- **Issues**: [https://github.com/ashishbongu/OnWings/issues](https://github.com/ashishbongu/OnWings/issues)
+
+---
+
+## 🙏 Acknowledgments
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lucide Icons](https://lucide.dev/)
+- [Ark UI](https://ark-ui.com/)
+
+---
+
+<div align="center">
+
+Made with ❤️ by the OnWings Team
+
+**[⬆ Back to Top](#-onwings---modern-flight-booking-system)**
+
+</div>
