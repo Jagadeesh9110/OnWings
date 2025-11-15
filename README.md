@@ -95,6 +95,18 @@ OnWings is a comprehensive flight booking system designed to address the common 
 - Responsive design for all devices
 - Intuitive navigation
 
+### ✈️ Private Jet Booking
+- Dedicated page for private jet charter
+- Premium booking experience
+- Custom itinerary options
+
+### 📜 My Trips Dashboard
+- View booking history
+- Trip timeline visualization
+- Frosted glass card design
+- Trip detail drawer with full information
+- Download tickets from trip history
+
 ---
 
 ## 🛠️ Tech Stack
@@ -169,12 +181,13 @@ OnWings is a comprehensive flight booking system designed to address the common 
 ## 📁 Project Structure
 
 ```
-OnWings/
-├── public/                 # Static assets
+OnWings.v2/
+├── public/
+│   └── images/            # Static images and assets
 ├── src/
-│   ├── api/               # API simulation and services
-│   │   └── mockApi.js     # Mock API endpoints
-│   ├── assets/            # Images, fonts, etc.
+│   ├── api/
+│   │   └── mockApi.js     # Mock API with simulated Amadeus responses
+│   ├── assets/            # Images, fonts, media files
 │   ├── components/
 │   │   ├── auth/          # Authentication components
 │   │   │   ├── LoginModal.jsx
@@ -185,41 +198,89 @@ OnWings/
 │   │   │   ├── PaymentForm.jsx
 │   │   │   ├── PriceSummary.jsx
 │   │   │   └── SeatMap.jsx
-│   │   ├── common/        # Shared components
+│   │   ├── common/        # Reusable shared components
 │   │   │   ├── ArkDatePicker.jsx
+│   │   │   ├── Button.jsx
 │   │   │   ├── ExpandingGallery.jsx
 │   │   │   ├── FlightLoader.jsx
 │   │   │   ├── FlightTicket.jsx
 │   │   │   ├── FloatingPaths.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── ShaderBackground.jsx
 │   │   │   └── WarpBackground.jsx
-│   │   ├── flight/        # Flight-related components
+│   │   ├── flight/        # Flight search and results
+│   │   │   ├── FilterPanel.jsx
 │   │   │   ├── FlightCard.jsx
 │   │   │   └── FlightSearchForm.jsx
-│   │   └── icons/         # Icon components
-│   ├── data/              # Static data
-│   │   ├── airports.js    # Airport information
-│   │   └── mockFlights.js # Sample flight data
-│   ├── pages/             # Page components
+│   │   ├── icons/
+│   │   │   └── Icons.jsx  # Centralized icon components
+│   │   ├── layout/
+│   │   │   └── Footer.jsx # Global footer component
+│   │   ├── trips/         # My Trips feature components
+│   │   │   ├── TripCardFrosted.jsx
+│   │   │   ├── TripDetailDrawer.jsx
+│   │   │   └── TripsTimeline.jsx
+│   │   └── ui/            # shadcn/ui components
+│   │       ├── badge.jsx
+│   │       ├── button.jsx
+│   │       ├── card.jsx
+│   │       ├── dialog.jsx
+│   │       ├── dropdown-menu.jsx
+│   │       ├── form.jsx
+│   │       ├── input.jsx
+│   │       ├── label.jsx
+│   │       ├── popover.jsx
+│   │       ├── select.jsx
+│   │       ├── sheet.jsx
+│   │       ├── skeleton.jsx
+│   │       ├── tabs.jsx
+│   │       ├── toast.jsx
+│   │       └── toaster.jsx
+│   ├── data/              # Static data and mock datasets
+│   │   ├── airports.js    # Airport codes and information
+│   │   ├── mockFlights.js # Sample flight data
+│   │   └── mockTrips.js   # Mock user trip history
+│   ├── hooks/
+│   │   └── use-toast.js   # Custom toast notification hook
+│   ├── lib/
+│   │   └── utils.js       # Utility functions (cn, etc.)
+│   ├── pages/             # Page-level components
 │   │   ├── HomePage.jsx
+│   │   ├── FlightSearchPage.jsx
 │   │   ├── FlightResultsPage.jsx
 │   │   ├── BookingPage.jsx
-│   │   └── ConfirmationPage.jsx
-│   ├── store/             # Redux store
+│   │   ├── PrivateBookingPage.jsx  # Private jet booking
+│   │   ├── LuggagePage.jsx
+│   │   ├── PaymentPage.jsx
+│   │   ├── ConfirmationPage.jsx
+│   │   └── MyTrips.jsx    # User trip history
+│   ├── store/             # Redux Toolkit store
 │   │   ├── store.js       # Store configuration
-│   │   └── slices/        # Redux slices
+│   │   └── slices/        # Redux state slices
 │   │       ├── bookingSlice.js
-│   │       └── flightSlice.js
-│   ├── styles/            # Global styles
-│   ├── App.jsx            # Root component
-│   └── main.jsx           # Entry point
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-└── eslint.config.js
+│   │       ├── filterSlice.js
+│   │       ├── flightSlice.js
+│   │       ├── tripsSlice.js
+│   │       └── userSlice.js
+│   ├── styles/
+│   │   ├── index.css      # Global styles and Tailwind imports
+│   │   └── FlightLoader.css  # Custom loader animations
+│   ├── utils/             # Helper utilities
+│   │   ├── downloadTicket.js
+│   │   ├── transformBookingToTrip.js
+│   │   └── validation.js  # Form validation helpers
+│   ├── App.jsx            # Root component with routing
+│   └── main.jsx           # Application entry point
+├── components.json        # shadcn/ui configuration
+├── eslint.config.js       # ESLint configuration
+├── index.html             # HTML template
+├── jsconfig.json          # JavaScript compiler options
+├── package.json           # Dependencies and scripts
+├── postcss.config.js      # PostCSS configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+└── vite.config.js         # Vite build configuration
 ```
 
 ---
@@ -295,6 +356,71 @@ The application uses Redux Toolkit with the following slices:
 - Payment details
 - Booking confirmation
 
+**User Slice**
+- Authentication state
+- User profile
+- Modal visibility (login/signup)
+
+**Trips Slice**
+- User trip history
+- Booked flights
+- Trip filtering and search
+
+**Filter Slice**
+- Flight search filters
+- Sort preferences
+- Price range filtering
+
+### Data Flow Architecture
+
+```
+┌────────────────────────┐
+│        User UI         │
+│ React Components + UI  │
+└─────────────┬──────────┘
+              │
+              ▼
+┌───────────────────────────────┐
+│     React Router Navigation   │
+│  (Home → Search → Results →   │
+│   Booking → Payment → Confirm │
+└──────────────┬────────────────┘
+              │
+              ▼
+┌────────────────────────┐
+│     Redux Store        │
+│ (Global Application    │
+│   State Management)    │
+└─────────────┬──────────┘
+              │
+┌──────────────┼────────────────┐
+▼              ▼                ▼
+┌────────────────┐  ┌──────────────┐  ┌───────────────┐
+│ flightSlice     │  │ bookingSlice │  │ userSlice      │
+│ (Search,        │  │ (Passengers, │  │ (Auth, Modals) │
+│  Results)       │  │  Seats, Pay) │  │                │
+└────────────┬────┘  └──────┬───────┘  └───────────────┘
+             │              │
+             ▼              ▼
+┌────────────────┐  ┌─────────────────────┐
+│ async Thunks   │  │  Synchronous Reducer │
+│ (fetchFlights) │  │  Updates State       │
+└──────────┬─────┘  └───────────┬─────────┘
+           │                    │
+           ▼                    ▼
+┌─────────────────────────────────┐
+│         mockApi.js              │
+│ Simulated Amadeus API Request   │
+│ Returns MOCK_FLIGHTS (1s delay) │
+└─────────────────────────────────┘
+              │
+              ▼
+┌────────────────────────┐
+│   UI renders updated   │
+│   flights / booking    │
+└────────────────────────┘
+```
+
 ### Styling Guidelines
 
 - Use Tailwind CSS utility classes
@@ -325,13 +451,46 @@ Contributions are what make the open-source community amazing! Any contributions
 
 ## 👥 Team
 
-This project was developed by a collaborative team of developers:
+This project was developed by a collaborative team of developers, each contributing specialized expertise:
 
-- **Ganesh** - Team Coordinator & Frontend Development
-- **Jagadesh** - State Management & API Integration
-- **Hariteja** - UI/UX Design & Component Architecture
-- **Ashish** - Booking System & Payment Flow
-- **Harsha** - Seat Selection & Real-time Features
+### **Ganesh**
+- **Role**: Team Coordinator & Frontend Development
+- **Contributions**: 
+  - Initial project setup and architecture
+  - Private Jet booking page development
+  - Project coordination and integration
+
+### **Jagadesh**
+- **Role**: State Management & API Integration
+- **Contributions**:
+  - Redux slices implementation (flight, booking, user, trips, filter)
+  - Mock API simulations with realistic delays
+  - Home page development
+  - Application state logic and data flow architecture
+
+### **Hariteja**
+- **Role**: UI/UX Design & Component Architecture
+- **Contributions**:
+  - UI/UX design system and visual identity
+  - Reusable form components (Button, Input, Modal)
+  - Payment page development
+  - Component library architecture
+
+### **Ashish**
+- **Role**: Booking Flow & Payment Processing
+- **Contributions**:
+  - Complete booking page implementation
+  - Payment processing logic and validation
+  - Ticket generation system
+  - Pricing calculations and dynamic pricing engine
+
+### **Harsha**
+- **Role**: My Trips & User Experience
+- **Contributions**:
+  - My Trips page with trip history
+  - Ticket generation and download functionality
+  - Animation and transition effects
+  - Responsive design optimizations for all devices
 
 ---
 
