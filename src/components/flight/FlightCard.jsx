@@ -23,7 +23,6 @@ const Button = ({ variant, className, ...props }) => {
   let variantStyle = "";
 
   if (variant === "link") {
-
     variantStyle =
       "p-0 h-auto justify-start mt-2 text-sm text-primary hover:underline";
   } else {
@@ -49,6 +48,9 @@ export const FlightCard = ({
   airline,
   departureTime,
   arrivalTime,
+  // 1. ADD 'from' and 'to' TO THE PROPS
+  from,
+  to,
   duration,
   stops,
   price,
@@ -108,6 +110,8 @@ export const FlightCard = ({
           {/* Timeline */}
           <div className="md:col-span-5 flex items-center gap-2">
             <div className="text-center">
+              {/* 2. ADD THE 'from' TEXT (SOURCE) */}
+              <p className="text-sm text-white/60">{from}</p>
               <p className="font-bold text-lg sm:text-xl text-white/90">
                 {departureTime}
               </p>
@@ -124,6 +128,8 @@ export const FlightCard = ({
               <p className="text-xs font-medium text-red-500">{stopText}</p>
             </div>
             <div className="text-center">
+              {/* 3. ADD THE 'to' TEXT (DESTINATION) */}
+              <p className="text-sm text-white/60">{to}</p>
               <p className="font-bold text-lg sm:text-xl text-white/90">
                 {arrivalTime}
               </p>
