@@ -400,7 +400,7 @@ const FlightSearchForm = () => {
           <button
             type="button"
             onClick={() => setIsPassengerDropdownOpen(!isPassengerDropdownOpen)}
-            className={`mt-1 block w-full p-2 sm:p-3 bg-transparent border-0 border-b-2 ${
+            className={`mt-1 block w-full p-2 sm:p-3 text-white bg-transparent border-0 border-b-2 ${
               errors.passengers ? "border-red-600" : "border-gray-400"
             } focus:border-red-600 rounded-none text-slate-900 text-sm sm:text-base text-left flex items-center justify-between`}
           >
