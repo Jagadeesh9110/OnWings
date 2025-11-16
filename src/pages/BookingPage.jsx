@@ -76,7 +76,7 @@ const BookingPage = () => {
 
   return (
     // Add the container back
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 mt-16">
       <h1 className="text-4xl font-bold text-black/90 mb-8">Booking Details</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
