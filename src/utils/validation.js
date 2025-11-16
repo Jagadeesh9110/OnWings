@@ -50,21 +50,7 @@ export const validateCardNumber = (cardNumber) => {
   if (!cardNumber) return "Card number is required";
   const cleanedCard = cardNumber.replace(/\s/g, "");
   if (!/^\d+$/.test(cleanedCard)) return "Card number must contain only digits";
-  if (cleanedCard.length < 13 || cleanedCard.length > 19) return "Card number must be between 13 and 19 digits";
-  
-  // Luhn algorithm validation
-  let sum = 0;
-  let isEven = false;
-  for (let i = cleanedCard.length - 1; i >= 0; i--) {
-    let digit = parseInt(cleanedCard[i], 10);
-    if (isEven) {
-      digit *= 2;
-      if (digit > 9) digit -= 9;
-    }
-    sum += digit;
-    isEven = !isEven;
-  }
-  if (sum % 10 !== 0) return "Invalid card number";
+  if (cleanedCard.length !== 16) return "Card number must be exactly 16 digits";
   return "";
 };
 
