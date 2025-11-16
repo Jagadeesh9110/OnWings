@@ -66,6 +66,10 @@ const FlightResultsPage = () => {
                   }}
                   departureTime={flight.departure}
                   arrivalTime={flight.arrival}
+
+                  from={flight.from} 
+                  to={flight.to}
+                  
                   duration="2h 00m"
                   stops={0}
                   price={flight.price}
