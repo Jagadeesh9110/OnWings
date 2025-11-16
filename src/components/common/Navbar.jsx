@@ -84,7 +84,7 @@ const Navbar = () => {
 
   return (
     <header className="pointer-events-none fixed top-0 w-full z-50">
-      <nav className="pointer-events-auto max-w-5xl w-[90%] mx-auto h-16 flex items-center justify-between px-4 sm:px-6 rounded-full bg-black/70 backdrop-blur-sm border border-white/10 shadow-lg shadow-red-900/20 ring-1 ring-red-600/10">
+      <nav className="pointer-events-auto max-w-5xl w-[90%] mx-auto h-16 flex items-center justify-between px-4 sm:px-6 rounded-b-lg bg-black/70 backdrop-blur-sm border border-white/10 shadow-lg shadow-red-900/20 ring-1 ring-red-600/10">
         <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }}>
           <Link
             to="/"
