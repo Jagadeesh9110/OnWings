@@ -26,6 +26,7 @@ import {
   Clock,
   Award,
   Sparkles,
+  Quote,
 } from 'lucide-react';
 
 // Mock data for private aircraft
@@ -89,6 +90,70 @@ const privateAircraft = [
     description: 'Spacious twin-engine helicopter for VIP transport and corporate travel.',
     features: ['VIP Interior', 'Climate Control', 'Advanced Avionics', 'Quiet Cabin'],
     priceRange: '₹1.5L - ₹2.5L/hour',
+  },
+];
+
+// Customer Reviews Data
+const customerReviews = [
+  {
+    id: 1,
+    name: 'Rajesh Sharma',
+    role: 'CEO, Tech Innovations',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh',
+    rating: 5,
+    review: 'Absolutely exceptional service! The Gulfstream G650 was immaculate, and the crew was professional. Flying private has transformed how I conduct business.',
+    date: 'October 2024',
+    aircraft: 'Gulfstream G650',
+  },
+  {
+    id: 2,
+    name: 'Priya Patel',
+    role: 'Film Producer',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya',
+    rating: 5,
+    review: 'Perfect for our film crew transport. The Citation CJ3 got us to remote locations effortlessly. The booking process was seamless and the staff incredibly helpful.',
+    date: 'September 2024',
+    aircraft: 'Citation CJ3',
+  },
+  {
+    id: 3,
+    name: 'Amit Kapoor',
+    role: 'Real Estate Developer',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Amit',
+    rating: 5,
+    review: 'Used the Bell 407 Helicopter for site inspections. The convenience and time saved is incredible. Highly recommend for business executives.',
+    date: 'November 2024',
+    aircraft: 'Bell 407 Helicopter',
+  },
+  {
+    id: 4,
+    name: 'Neha Malhotra',
+    role: 'Fashion Designer',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Neha',
+    rating: 5,
+    review: 'Luxury redefined! Traveled to Fashion Week in style. The attention to detail and comfort in the Embraer Phenom 300 was outstanding.',
+    date: 'October 2024',
+    aircraft: 'Embraer Phenom 300',
+  },
+  {
+    id: 5,
+    name: 'Vikram Singh',
+    role: 'Investment Banker',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Vikram',
+    rating: 5,
+    review: 'Been using OnWings for 2 years now. Consistently excellent service, always on time, and the fleet is world-class. Won\'t trust anyone else.',
+    date: 'November 2024',
+    aircraft: 'Multiple Aircraft',
+  },
+  {
+    id: 6,
+    name: 'Ananya Reddy',
+    role: 'Entrepreneur',
+    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya',
+    rating: 5,
+    review: 'The King Air 350 was perfect for our corporate retreat. Spacious, comfortable, and the crew went above and beyond. Five stars all the way!',
+    date: 'September 2024',
+    aircraft: 'King Air 350',
   },
 ];
 
@@ -490,6 +555,118 @@ const PrivateBookingPage = () => {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="container mx-auto px-4 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <Badge className="mb-4 bg-yellow-600/20 text-yellow-400 border-yellow-600 px-4 py-2">
+            <Star className="w-4 h-4 mr-2 fill-yellow-400" />
+            Customer Testimonials
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            What Our Clients Say
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Join thousands of satisfied customers who trust us for their private aviation needs
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {customerReviews.map((review, index) => (
+            <motion.div
+              key={review.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-gradient-to-br from-black/60 via-black/40 to-red-900/20 backdrop-blur-sm border-white/10 hover:border-red-500/50 transition-all duration-300 h-full group relative overflow-hidden">
+                {/* Decorative Quote Icon */}
+                <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Quote className="w-20 h-20 text-red-500" />
+                </div>
+                
+                <CardContent className="p-6 relative z-10">
+                  {/* Rating Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-gray-300 text-sm mb-6 leading-relaxed italic">
+                    "{review.review}"
+                  </p>
+
+                  {/* Aircraft Badge */}
+                  <Badge className="mb-4 bg-red-600/20 text-red-400 border-red-600/30 text-xs">
+                    <Plane className="w-3 h-3 mr-1" />
+                    {review.aircraft}
+                  </Badge>
+
+                  {/* Customer Info */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                    <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-red-500/30">
+                      <img
+                        src={review.image}
+                        alt={review.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-white font-semibold text-sm">{review.name}</h4>
+                      <p className="text-gray-400 text-xs">{review.role}</p>
+                      <p className="text-gray-500 text-xs mt-1">{review.date}</p>
+                    </div>
+                  </div>
+                </CardContent>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/0 via-red-600/0 to-red-600/0 group-hover:from-red-600/5 group-hover:via-red-600/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-12"
+        >
+          <Card className="bg-gradient-to-r from-red-600/10 via-orange-600/10 to-red-600/10 backdrop-blur-sm border-red-500/20">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div className="space-y-2">
+                  <div className="text-3xl md:text-4xl font-bold text-white">2,500+</div>
+                  <div className="text-gray-400 text-sm">Successful Flights</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-3xl md:text-4xl font-bold text-white">98%</div>
+                  <div className="text-gray-400 text-sm">Client Satisfaction</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-3xl md:text-4xl font-bold text-white">1,200+</div>
+                  <div className="text-gray-400 text-sm">Happy Clients</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-3xl md:text-4xl font-bold text-white">24/7</div>
+                  <div className="text-gray-400 text-sm">Support Available</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </section>
 
       {/* CTA Section */}
