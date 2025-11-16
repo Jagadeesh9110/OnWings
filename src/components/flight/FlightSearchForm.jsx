@@ -243,7 +243,7 @@ const FlightSearchForm = () => {
         <div className="w-full relative">
           <label
             htmlFor="from"
-            className="block text-sm font-bold text-slate-700 text-left"
+            className="block text-sm font-bold text-white text-left"
           >
             Source
           </label>
@@ -253,7 +253,7 @@ const FlightSearchForm = () => {
             value={from}
             onChange={handleFromChange}
             placeholder="Source"
-            className={`mt-1 block w-full p-2 sm:p-3 text-sm sm:text-base bg-transparent text-slate-900 border-0 border-b-2 ${
+            className={`mt-1 block w-full p-2 sm:p-3 text-sm sm:text-base bg-transparent text-white border-0 border-b-2 ${
               errors.from ? "border-red-600" : "border-gray-300"
             } focus:border-red-600 focus:ring-0 rounded-none placeholder:text-slate-400`}
             autoComplete="off"
@@ -293,7 +293,7 @@ const FlightSearchForm = () => {
         <div className="w-full relative">
           <label
             htmlFor="to"
-            className="block text-sm font-bold text-slate-700 text-left"
+            className="block text-sm font-bold text-white text-left"
           >
             Destination
           </label>
@@ -303,7 +303,7 @@ const FlightSearchForm = () => {
             value={to}
             onChange={handleToChange}
             placeholder="Destination"
-            className={`mt-1 block w-full p-2 sm:p-3 text-sm sm:text-base bg-transparent text-slate-900 border-0 border-b-2 ${
+            className={`mt-1 block w-full p-2 sm:p-3 text-sm sm:text-base bg-transparent text-white border-0 border-b-2 ${
               errors.to ? "border-red-600" : "border-gray-300"
             } focus:border-red-600 focus:ring-0 rounded-none placeholder:text-slate-400`}
             autoComplete="off"
@@ -338,9 +338,9 @@ const FlightSearchForm = () => {
       >
         <label
           htmlFor="depart-date"
-          className="block text-sm font-bold text-slate-700 text-left"
+          className="block text-sm font-bold text-white text-left"
         >
-          Depart
+          Depart Date
         </label>
         <ArkDatePicker
           id="depart-date"
@@ -349,7 +349,7 @@ const FlightSearchForm = () => {
             setDate(newDate);
             setErrors(prev => ({ ...prev, date: "" }));
           }}
-          placeholder="Select date"
+          className="text-white"
         />
         {errors.date && (
           <div className="flex items-center mt-1 text-red-600 text-xs">
@@ -363,7 +363,7 @@ const FlightSearchForm = () => {
         <div className="md:col-span-2">
           <label
             htmlFor="return-date"
-            className="block text-sm font-bold text-slate-700 text-left"
+            className="block text-sm font-bold text-white text-left"
           >
             Return
           </label>
@@ -392,7 +392,7 @@ const FlightSearchForm = () => {
       >
         <label
           htmlFor="passengers"
-          className="block text-sm font-bold text-slate-700 text-left"
+          className="block text-sm font-bold text-white text-left"
         >
           Passengers
         </label>
