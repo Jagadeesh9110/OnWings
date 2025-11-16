@@ -1,9 +1,6 @@
-// "use client"; <-- REMOVED THIS LINE.
 import React from "react";
 import { motion } from "framer-motion";
-// Removed 'Button' import as it's not used here
 
-// Removed Typescript prop definition
 function FloatingPaths({ position }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
@@ -21,7 +18,6 @@ function FloatingPaths({ position }) {
   return (
     <div className="absolute inset-0 pointer-events-none">
       <svg
-        // Changed color to match your red theme
         className="w-full h-full text-red-600"
         viewBox="0 0 696 316"
         fill="none"
@@ -33,12 +29,12 @@ function FloatingPaths({ position }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            // Set opacity to match your theme
+            // Set opacity 
             strokeOpacity={0.1 + path.id * 0.02}
             initial={{ pathLength: 0.3, opacity: 0.6 }}
             animate={{
               pathLength: 1,
-              opacity: [0.1, 0.4, 0.1], // Fades in and out
+              opacity: [0.1, 0.4, 0.1], 
               pathOffset: [0, 1, 0],
             }}
             transition={{
@@ -53,7 +49,6 @@ function FloatingPaths({ position }) {
   );
 }
 
-// Exporting the component
 export { FloatingPaths };
 
 

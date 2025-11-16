@@ -35,7 +35,6 @@ const FilterPanel = ({ isOpen, onClose, isMobile }) => {
   // Local state for price range slider
   const [localPriceRange, setLocalPriceRange] = useState(priceRangeFilter);
 
-  // Local state for expanded sections (accordion on mobile)
   const [expandedSections, setExpandedSections] = useState({
     sort: true,
     price: true,

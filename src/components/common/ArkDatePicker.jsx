@@ -1,30 +1,23 @@
 import { DatePicker } from "@ark-ui/react/date-picker";
 import { Portal } from "@ark-ui/react/portal";
 import { ChevronLeft, ChevronRight, Calendar, X } from "lucide-react";
-// 1. Import the date parser
 import { parseDate } from "@internationalized/date";
 
 export const ArkDatePicker = ({ value, onChange, placeholder }) => {
-  // 2. This function converts our state (string or null)
-  //    into the array the component expects.
+
   const getPickerValue = () => {
     if (!value) return [];
     try {
-      // It converts "2025-11-10" into a CalendarDate object
       return [parseDate(value)];
     } catch (e) {
-      // Failsafe in case of bad data
       return [];
     }
   };
 
   return (
     <DatePicker.Root
-      // 3. Use our new function to set the value
       value={getPickerValue()}
       onValueChange={(details) => {
-        // 4. When the value changes, store it as a simple string
-        //    or null if it's cleared.
         const dateString = details.value[0]?.toString() || null;
         onChange(dateString);
       }}

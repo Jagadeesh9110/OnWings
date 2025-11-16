@@ -1,14 +1,12 @@
 import React from 'react';
 
-// A simple utility for conditional class names
+// A simple utility 
 const cn = (...classes) => {
   return classes.filter(Boolean).join(' ');
 }
 
-// Renamed to ExpandingGallery and set up to receive 'items'
 export const ExpandingGallery = ({ items }) => {
   return (
-    // This is the <section> from your code
     <section className="w-full flex flex-col items-center justify-start py-12">
       
       <div className="max-w-3xl text-center px-4">
@@ -16,7 +14,6 @@ export const ExpandingGallery = ({ items }) => {
       </div>
 
       <div className="flex items-center gap-2 h-[400px] w-full max-w-5xl mt-10 px-4">
-        {/* We now map over the 'items' prop (your destination data) */}
         {items.map((item, idx) => (
           <div
             key={idx}
@@ -24,8 +21,8 @@ export const ExpandingGallery = ({ items }) => {
           >
             <img
               className="h-full w-full object-cover object-center"
-              src={item.image} // Use the image from your data
-              alt={item.city}  // Use the city from your data
+              src={item.image} 
+              alt={item.city} 
             />
           </div>
         ))}

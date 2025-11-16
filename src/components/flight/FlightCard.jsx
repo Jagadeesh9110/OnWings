@@ -2,12 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-// 1. Re-created the 'cn' (classnames) utility
 const cn = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
-// 2. Re-created the 'Badge' component using Tailwind
 const Badge = ({ className, ...props }) => {
   return (
     <div
@@ -20,17 +18,15 @@ const Badge = ({ className, ...props }) => {
   );
 };
 
-// 3. Re-created the 'Button' component using Tailwind
 const Button = ({ variant, className, ...props }) => {
   const baseStyle = "transition-colors";
   let variantStyle = "";
 
   if (variant === "link") {
-    // Style for the "Flight Details" link
+
     variantStyle =
       "p-0 h-auto justify-start mt-2 text-sm text-primary hover:underline";
   } else {
-    // Style for the main "Book" button
     variantStyle =
       "w-full md:w-auto mt-2 bg-red-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 hover:bg-red-900 flex items-center justify-center";
   }
@@ -40,7 +36,6 @@ const Button = ({ variant, className, ...props }) => {
   );
 };
 
-// 4. A helper for formatting currency
 const formatCurrency = (amount, currency = "INR") => {
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -50,7 +45,6 @@ const formatCurrency = (amount, currency = "INR") => {
   }).format(amount);
 };
 
-// 5. Your new FlightCard, converted to .jsx
 export const FlightCard = ({
   airline,
   departureTime,
@@ -73,7 +67,6 @@ export const FlightCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      // Updated styles to match your black/red theme
       className={cn(
         "w-full rounded-lg border border-red-800/50 bg-black/80 text-white shadow-lg hover:shadow-red-900/40 transition-shadow",
         className
@@ -106,7 +99,7 @@ export const FlightCard = ({
               variant="link"
               onClick={onFlightDetails}
               aria-label="View flight details"
-              className="text-red-500 hover:text-red-400" // Styled link
+              className="text-red-500 hover:text-red-400"
             >
               Flight Details
             </Button>
@@ -159,5 +152,4 @@ export const FlightCard = ({
   );
 };
 
-// Use default export to match your old file
 export default FlightCard;

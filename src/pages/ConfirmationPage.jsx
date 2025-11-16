@@ -33,7 +33,6 @@ const ConfirmationPage = () => {
     try {
       setIsDownloading(true);
       await downloadTicketAsPDF(ticketRef.current, bookingId);
-      // Optional: Show success message
     } catch (error) {
       alert(error.message || 'Failed to download ticket. Please try again.');
     } finally {

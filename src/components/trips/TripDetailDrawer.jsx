@@ -48,7 +48,6 @@ const TripDetailDrawer = ({ trip, isOpen, onClose }) => {
   };
 
   const handleDownload = () => {
-    // Placeholder for download functionality
     alert('Download functionality would be implemented here');
   };
 

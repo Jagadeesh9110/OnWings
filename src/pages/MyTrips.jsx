@@ -66,7 +66,6 @@ const MyTrips = () => {
       filtered = filtered.filter(trip => trip.status === statusFilter);
     }
 
-    // Search filter: city, code, airline, flightNo, bookingId
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(trip => (

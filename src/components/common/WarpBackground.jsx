@@ -1,10 +1,8 @@
 import React from 'react';
 import { Warp } from "@paper-design/shaders-react"
 
-// This is the component you provided, exported for use
 export const WarpBackground = () => {
   return (
-    // We use the fixed positioning from your example
     <div className="fixed inset-0 -z-10" >
       <Warp
         style={ { width: "100%", height: "100%" } }

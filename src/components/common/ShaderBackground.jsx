@@ -9,7 +9,7 @@ const useShaderBackground = () => {
 
   // WebGL Renderer class
   class WebGLRenderer {
-    // ... (All private fields) ...
+    // (All private fields) 
 
     constructor(canvas, scale) {
       this.canvas = canvas;
@@ -354,7 +354,6 @@ void main(void) {
 	O=vec4(mix(col, vec3(bg*.3, bg*.05, bg*.05), .5),1);
 }`;
 
-// This is the new, simple component we will use
 const ShaderBackground = ({ className = "" }) => {
   const canvasRef = useShaderBackground();
 

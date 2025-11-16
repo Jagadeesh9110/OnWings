@@ -6,7 +6,6 @@ import {
   selectCurrentFlight, 
   selectBookingStatus,
   clearBooking,
-  // 1. Import new selectors
   selectPassengers,
   selectSelectedSeats,
   addPassenger,
@@ -17,7 +16,6 @@ import { Loader2 } from 'lucide-react'
 import PassengerForm from '../components/booking/PassengerForm'
 import SeatMap from '../components/booking/SeatMap'
 import PriceSummary from '../components/booking/PriceSummary'
-// 2. Import the new component
 import LuggageInfo from '../components/booking/LuggageInfo'
 
 const BookingPage = () => {
@@ -27,7 +25,6 @@ const BookingPage = () => {
   
   const flight = useSelector(selectCurrentFlight);
   const status = useSelector(selectBookingStatus);
-  // 3. Get passengers and seats for validation
   const passengers = useSelector(selectPassengers);
   const selectedSeats = useSelector(selectSelectedSeats);
   const searchParams = useSelector(selectSearchParams);
@@ -37,7 +34,7 @@ const BookingPage = () => {
       dispatch(fetchFlightById(flightId));
     }
     return () => {
-      // dispatch(clearBooking()); // Don't clear, so payment page can access it
+      // dispatch(clearBooking()); 
     }
   }, [dispatch, flightId]);
 
@@ -85,7 +82,6 @@ const BookingPage = () => {
         
         <div className="lg:col-span-2 space-y-8">
           <PassengerForm />
-          {/* 5. Add the LuggageInfo component */}
           <LuggageInfo /> 
           <SeatMap />
         </div>

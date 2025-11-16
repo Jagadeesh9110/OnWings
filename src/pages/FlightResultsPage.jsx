@@ -15,7 +15,6 @@ import { Filter } from 'lucide-react'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import FlightLoader from '../components/common/FlightLoader'
-// ... (Animation variants are unchanged) ...
 const listVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -35,10 +34,8 @@ const FlightResultsPage = () => {
   
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
-  // 2. Initialize the navigate function
   const navigate = useNavigate();
 
-  // 3. Create the handler function
   const handleBookClick = (flightId) => {
     navigate(`/book/${flightId}`);
   };
@@ -46,7 +43,6 @@ const FlightResultsPage = () => {
   let content;
 
   if (status === 'loading') {
-    // ... (loading spinner code is unchanged) ...
   } else if (status === 'succeeded') {
     if (flights.length > 0) {
       content = (
@@ -75,7 +71,6 @@ const FlightResultsPage = () => {
                   price={flight.price}
                   offer={index % 2 === 0 ? "10% OFF" : null}
                   refundableType="Refundable"
-                  // 4. Pass the new handler to the onBook prop
                   onBook={() => handleBookClick(flight.id)}
                   onFlightDetails={() => alert(`Showing details for ${flight.id}`)}
                 />

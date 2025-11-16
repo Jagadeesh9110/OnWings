@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import FlightSearchForm from '../components/flight/FlightSearchForm'
 
-// --- ASSET IMPORTS ---
 import HeroImage from '../assets/hero-background.jpg'
 import MumbaiImg from '../assets/mumbai.jpg'
 import DubaiImg from '../assets/dubai.jpg'
@@ -21,13 +20,11 @@ import { FloatingPaths } from '../components/common/FloatingPaths'
 import { ExpandingGallery } from '../components/common/ExpandingGallery'
 import WarpBackground from '../components/common/WarpBackground'
 
-// --- SHADCN IMPORTS ---
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-// --- ICON IMPORTS ---
 import { 
   Zap, ShieldCheck, DollarSign, Award, 
   Brain, Eye, Calculator, Headphones,
@@ -35,10 +32,9 @@ import {
   Sparkles, Globe, Clock, Users
 } from 'lucide-react'
 
-// --- MOCK DATA ---
 const popularDestinations = [
   { city: 'Mumbai', price: '4,500', image: MumbaiImg },
-  { city: 'Dubai', price: '12,800', image: DubaiImg }, // <-- FIX: Changed 'Delhi' to 'Dubai'
+  { city: 'Dubai', price: '12,800', image: DubaiImg },
   { city: 'Bangalore', price: '6,200', image: BangaloreImg },
   { city: 'Goa', price: '3,800', image: GoaImg },
   { city: 'Kolkata', price: '5,100', image: KolkataImg },
@@ -47,11 +43,11 @@ const popularDestinations = [
 
 const galleryItems = popularDestinations.map(dest => ({
   common: dest.city,
-  binomial: `Flights from ₹${dest.price}`, // Use this for the italic text
+  binomial: `Flights from ₹${dest.price}`,
   photo: {
     url: dest.image,
     text: `Photo of ${dest.city}`,
-    by: 'OnWings Travel', // Add a placeholder 'by'
+    by: 'OnWings Travel',
     pos: 'center'
   }
 }));
@@ -166,7 +162,6 @@ const floatingAnimation = {
 };
 
 
-// --- HOMEPAGE COMPONENT ---
 const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [email, setEmail] = useState('');
@@ -177,7 +172,6 @@ const HomePage = () => {
   const isSmartToolsInView = useInView(smartToolsRef, { once: true, amount: 0.2 });
   const isExperienceInView = useInView(experienceRef, { once: true, amount: 0.3 });
 
-  // Auto-rotate testimonials
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -187,14 +181,13 @@ const HomePage = () => {
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    // Add newsletter logic here
     console.log('Newsletter signup:', email);
     setEmail('');
   };
 
   return (
     <>
-      {/* ===== 1. HERO SECTION WITH GLASSMORPHISM + ADVANCED ANIMATIONS ===== */}
+      {/* HERO SECTION WITH GLASSMORPHISM + ADVANCED ANIMATIONS  */}
       <div className="relative w-screen left-1/2 -translate-x-1/2 pt-36">
         <WarpBackground />
 
@@ -286,7 +279,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* ===== 2. "WHY CHOOSE US" (FEATURES) SECTION WITH PREMIUM CARDS ===== */}
+      {/* 2. "WHY CHOOSE US" (FEATURES) SECTION WITH PREMIUM CARDS  */}
       <section className="container mx-auto py-24 px-4">
         <motion.div
           className="text-center mb-16"
@@ -341,7 +334,7 @@ const HomePage = () => {
         </motion.div>
       </section>
 
-      {/* ===== 3. "POPULAR DESTINATIONS" SECTION WITH CINEMATIC PARALLAX ===== */}
+      {/*  "POPULAR DESTINATIONS" SECTION WITH CINEMATIC PARALLAX  */}
       <section className="bg-gradient-to-b from-white to-slate-50 py-24">
         <div className="container mx-auto px-4">
           <motion.div
@@ -374,7 +367,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== AIRLINES WE PARTNER WITH SECTION ===== */}
+      {/*  AIRLINES WE PARTNER WITH SECTION  */}
       <section className="bg-slate-50 py-20">
         <div className="container mx-auto px-4">
           <motion.div
@@ -426,7 +419,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== 6. TESTIMONIALS CAROUSEL SECTION ===== */}
+      {/* TESTIMONIALS CAROUSEL SECTION  */}
       <section className="container mx-auto py-24 px-4">
         <motion.div
           className="text-center mb-16"
@@ -497,7 +490,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== 7. ONWINGS EXPERIENCE BRANDING SECTION ===== */}
+      {/*  ONWINGS EXPERIENCE BRANDING SECTION  */}
       <section ref={experienceRef} className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 overflow-hidden">
         {/* Parallax Background Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -586,7 +579,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== 8. NEWSLETTER CTA SECTION ===== */}
+      {/*  NEWSLETTER CTA SECTION */}
       <section className="container mx-auto py-24 px-4">
         <motion.div
           initial="hidden"

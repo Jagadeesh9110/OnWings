@@ -38,7 +38,6 @@ const FlightSearchForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (passengerDropdownRef.current && !passengerDropdownRef.current.contains(event.target)) {
@@ -215,7 +214,6 @@ const FlightSearchForm = () => {
       onSubmit={handleSubmit}
       className="grid grid-cols-1 md:grid-cols-6 gap-x-6 gap-y-4 items-end"
     >
-      {/* --- Trip Type Toggle --- */}
       <div className="md:col-span-6 flex justify-start gap-0 mb-2">
         <button
           type="button"

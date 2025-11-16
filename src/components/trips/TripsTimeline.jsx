@@ -18,7 +18,6 @@ const TripsTimeline = ({ trips, onViewDetails }) => {
       {/* Vertical Timeline Line */}
       <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200" />
 
-      {/* Timeline Items */}
       <div className="space-y-8">
         {trips.map((trip, index) => (
           <div key={trip.bookingId} className="relative flex gap-6">
@@ -48,11 +47,8 @@ const TripsTimeline = ({ trips, onViewDetails }) => {
                   }}
                 />
                 
-                {/* Icon */}
                 <span className="relative z-10 text-white text-xl">✈️</span>
               </motion.div>
-
-              {/* Connector Line to Card */}
               <div className="absolute top-6 left-12 w-6 h-[2px] bg-slate-300" />
             </div>
 
@@ -68,7 +64,7 @@ const TripsTimeline = ({ trips, onViewDetails }) => {
         ))}
       </div>
 
-      {/* SVG Animated Route (Optional decorative element) */}
+      {/* SVG Animated Route */}
       <svg 
         className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10"
         style={{ zIndex: 0 }}

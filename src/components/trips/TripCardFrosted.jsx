@@ -73,7 +73,6 @@ const TripCardFrosted = ({ trip, index, onViewDetails }) => {
     >
       <Card className="bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300">
         <div className="flex flex-col md:flex-row justify-between gap-4">
-          {/* Left Column: Route & Airline */}
           <div className="flex-1 space-y-3">
             {/* Route */}
             <div className="flex items-center gap-3">

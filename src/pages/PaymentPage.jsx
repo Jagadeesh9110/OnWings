@@ -83,7 +83,6 @@ const PaymentPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Payment Form */}
           <div className="bg-black/80 border border-red-800/50 p-6 rounded-none shadow-lg">
-            {/* We'll need to create/style this component next */}
             <PaymentForm onSubmit={handlePayment} /> 
           </div>
 

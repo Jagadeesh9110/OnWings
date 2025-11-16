@@ -191,7 +191,6 @@ const PrivateBookingPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log({
       tripType,
       fromLocation,
@@ -201,7 +200,6 @@ const PrivateBookingPage = () => {
       passengers,
       aircraftType,
     });
-    // Show confirmation message
     setIsSubmitted(true);
   };
 

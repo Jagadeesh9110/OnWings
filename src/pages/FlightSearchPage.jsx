@@ -1,8 +1,7 @@
 import React, { useMemo, useRef } from "react";
 import FlightSearchForm from "../components/flight/FlightSearchForm";
 import { motion, useScroll, useTransform } from "framer-motion";
-// IMPORTANT: Ensure this file exists in /src/assets. Replace placeholder when you add the actual airplane.
-import AirplaneImg from "../assets/hero-airplane-right.jpg"; // provided hero airplane visual
+import AirplaneImg from "../assets/hero-airplane-right.jpg";
 
 const FlightSearchPage = () => {
   // letter-by-letter animation data
@@ -90,7 +89,7 @@ const FlightSearchPage = () => {
         </div>
       </section>
 
-      {/* Search Form Section (unchanged form, repositioned below hero) */}
+      {/* Search Form Section  */}
       <div className="max-w-[760px] mx-auto px-4 mt-16 mb-24">
         <motion.div
           className="w-full bg-white rounded-xl shadow-2xl border border-slate-200 p-6 md:p-8"

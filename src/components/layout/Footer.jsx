@@ -12,7 +12,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-black/90 text-white/80 border-t border-red-800/30 mt-12">
-      {/* Subtle top animated line */}
       <motion.div
         aria-hidden
         className="h-[2px] w-full bg-gradient-to-r from-transparent via-red-600/60 to-transparent"
@@ -29,7 +28,6 @@ const Footer = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Plane className="w-5 h-5 text-red-500" />
@@ -38,7 +36,6 @@ const Footer = () => {
             <p className="text-sm text-white/60 max-w-sm">
               Seamless flights, clean design, and a smooth journey from search to boarding.
             </p>
-            {/* Subtle looping airplane */}
             <div className="relative h-6 overflow-hidden">
               <motion.div
                 className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-2"
@@ -52,7 +49,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <nav className="grid grid-cols-2 gap-4 text-sm">
             {[
               { to: "/", label: "Home" },
@@ -72,7 +68,6 @@ const Footer = () => {
             ))}
           </nav>
 
-          {/* Socials */}
           <div className="flex md:justify-end items-center gap-4">
             {[
               { href: "https://www.linkedin.com", Icon: Linkedin, label: "LinkedIn" },
@@ -95,7 +90,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
           <p className="text-xs text-white/50">
             © {new Date().getFullYear()} OnWings. All rights reserved.

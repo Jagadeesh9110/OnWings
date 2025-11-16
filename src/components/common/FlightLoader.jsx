@@ -1,8 +1,6 @@
 import React from 'react';
-// 1. Import your new CSS file
 import '../../styles/FlightLoader.css';
 
-// 2. Renamed from 'Component' to 'FlightLoader'
 export const FlightLoader = () => {
   return (
       <div className="loader-container">
