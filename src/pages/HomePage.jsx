@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import FlightSearchForm from '../components/flight/FlightSearchForm'
+import { Link } from 'react-router-dom';
 
 import HeroImage from '../assets/hero-background.jpg'
 import MumbaiImg from '../assets/mumbai.jpg'
@@ -171,7 +172,7 @@ const HomePage = () => {
   
   const isSmartToolsInView = useInView(smartToolsRef, { once: true, amount: 0.2 });
   const isExperienceInView = useInView(experienceRef, { once: true, amount: 0.3 });
-
+  
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -531,13 +532,15 @@ const HomePage = () => {
               </motion.p>
               
               <motion.div variants={fadeInUp}>
-                <Button 
-                  size="lg" 
-                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-6 text-lg group"
-                >
-                  Start Your Journey
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to="/search">
+                  <Button 
+                     size="lg" 
+                     className="bg-red-500 hover:bg-red-600 text-white px-8 py-6 text-lg group"
+                   >
+                     Start Your Journey
+                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
 

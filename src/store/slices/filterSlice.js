@@ -73,13 +73,12 @@ const getTimeSlot = (departureTime) => {
 
 // Helper function to calculate stops from flight data
 const getStopsCount = (flight) => {
-  // Since mock data doesn't have stops info, we'll use flight duration as proxy
   // In a real app, this would come from the API
   // For now, we'll randomly assign based on flight ID
   const id = parseInt(flight.id.replace(/\D/g, ''));
   if (id % 3 === 0) return 0; // Non-stop
   if (id % 3 === 1) return 1; // 1 stop
-  return 2; // 2+ stops
+  return 2; 
 };
 
 // Selector to get filtered and sorted flights
@@ -87,7 +86,7 @@ export const selectFilteredAndSortedFlights = (state) => {
   const flights = state.flights.flights;
   const filters = state.filters;
 
-  // Step 1: Apply filters
+  //  Apply filters
   let filteredFlights = flights.filter((flight) => {
     // Price filter
     if (flight.price < filters.priceRange.min || flight.price > filters.priceRange.max) {
@@ -118,7 +117,7 @@ export const selectFilteredAndSortedFlights = (state) => {
     return true;
   });
 
-  // Step 2: Apply sorting
+  //  Apply sorting
   const sortedFlights = [...filteredFlights].sort((a, b) => {
     switch (filters.sortOption) {
       case 'price-low-high':
@@ -130,7 +129,6 @@ export const selectFilteredAndSortedFlights = (state) => {
       case 'departure-late-early':
         return parseTime(b.departure) - parseTime(a.departure);
       case 'duration-shortest':
-        // Calculate duration (arrival - departure)
         const durationA = parseTime(a.arrival) - parseTime(a.departure);
         const durationB = parseTime(b.arrival) - parseTime(b.departure);
         return durationA - durationB;
